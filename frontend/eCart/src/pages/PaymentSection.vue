@@ -66,7 +66,7 @@ const createTransaction = async () => {
     error.value = ''
 
     // Send unit price + quantity + totalPrice
-    const res = await axios.post('http://localhost:5000/api/create', {
+    const res = await axios.post('https://payment-gateway-integration-lilac.vercel.app/api/create', {
       product: props.product,
       quantity: props.quantity,
       totalPrice: totalPrice.value
@@ -85,7 +85,7 @@ const createTransaction = async () => {
 
 const getDepositDetails = async () => {
   try {
-    const res = await axios.post('http://localhost:5000/api/deposit', { token: token.value })
+    const res = await axios.post('https://payment-gateway-integration-lilac.vercel.app/api/deposit', { token: token.value })
     const data = Array.isArray(res.data) ? res.data[0] : res.data
     const qr = data.data.qr
     depositDetails.value = {
@@ -100,7 +100,7 @@ const getDepositDetails = async () => {
 const checkStatus = async () => {
   try {
     loading.value = true
-    const res = await axios.post('http://localhost:5000/api/status', { token: token.value })
+    const res = await axios.post('https://payment-gateway-integration-lilac.vercel.app/api/status', { token: token.value })
     transactionStatus.value = res.data.transaction_status || 'Pending'
   } catch {
     error.value = 'Failed to check transaction status.'
