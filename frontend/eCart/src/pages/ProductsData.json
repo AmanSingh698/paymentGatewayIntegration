@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "SS Cricket Bat",
+    "price": 3499,
+    "description": "A premium english willow bat by SS.",
+    "image": "./ss.jpg"
+  },
+  {
+    "id": 2,
+    "name": "SG Cricket Bat",
+    "price": 4999,
+    "description": "Get the Kashimiri Willow bat by SG delivered at your home.",
+    "image": "./sg.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Duke Ball",
+    "price": 999,
+    "description": "Top quality Duke cricket ball for professional matches.",
+    "image": "./duke.jpg"
+  },
+  {
+    "id": 4,
+    "name": "SG Leather Ball",
+    "price": 999,
+    "description": "Durable leather cricket ball by SG for all playing conditions.",
+    "image": "./sg-leather.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Thigh Guard",
+    "price": 699,
+    "description": "Lightweight thigh guard for optimal protection and comfort.",
+    "image": "./thigh-guard.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Cricket Helmets",
+    "price": 199,
+    "description": "Sturdy cricket helmet with grill for head safety.",
+    "image": "./helmet.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Spike Shoes",
+    "price": 1199,
+    "description": "High-traction spike shoes for enhanced performance on the field.",
+    "image": "./spike.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Sunglasses",
+    "price": 149,
+    "description": "UV-protected sports sunglasses for outdoor play.",
+    "image": "./sunglasses.jpg"
+  },
+  {
+    "id": 9,
+    "name": "High Spirit Energy Drink",
+    "price": 349,
+    "description": "Energy drink to keep you hydrated and energized during matches.",
+    "image": "./energy-drink.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Gloves",
+    "price": 499,
+    "description": "Comfortable cricket gloves for better grip and protection.",
+    "image": "./gloves.jpg"
+  }
+]

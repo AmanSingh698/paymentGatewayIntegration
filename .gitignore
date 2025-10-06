@@ -1,0 +1,6 @@
+frontend/.env
+backend/.env
+
+frontend/eCart/.env
+backend/node_modules
+frontend/eCart/node_modules
