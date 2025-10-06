@@ -6,8 +6,12 @@
         <span>eCart</span>
       </div>
 
-      <nav>
+      <!-- Hamburger toggle for mobile -->
+      <button class="menu-toggle" @click="toggleMenu">☰</button>
+
+      <nav :class="{ open: menuOpen }">
         <router-link to="/">Home</router-link>
+        <router-link to="/payment-history">Payment History</router-link>
       </nav>
     </header>
 
@@ -18,12 +22,14 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import { useRouter } from "vue-router";
-const router = useRouter();
 
-const goHome = () => {
-  router.push("/");
-};
+const router = useRouter();
+const menuOpen = ref(false);
+
+const goHome = () => router.push("/");
+const toggleMenu = () => menuOpen.value = !menuOpen.value;
 </script>
 
 <style scoped>
@@ -59,8 +65,13 @@ const goHome = () => {
   margin-right: 8px;
 }
 
+/* Desktop nav */
+.navbar nav {
+  display: flex;
+  gap: 12px;
+}
+
 .navbar nav a {
-  margin: 0 12px;
   color: #333;
   text-decoration: none;
   font-weight: 500;
@@ -70,8 +81,49 @@ const goHome = () => {
   color: #1976d2;
 }
 
+/* Hamburger button hidden on desktop */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  /* Show hamburger */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide nav links by default */
+  .navbar nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Show nav when menuOpen */
+  .navbar nav.open {
+    display: flex;
+  }
+
+  .navbar nav a {
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #eee;
+  }
+}
+
 .main-content {
   flex: 1;
-  padding: 0px 20px;
+  padding: 0 20px;
 }
 </style>

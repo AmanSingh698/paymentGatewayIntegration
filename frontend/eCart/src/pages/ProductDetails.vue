@@ -4,7 +4,6 @@
     <h1>{{ product.name }}</h1>
     <p class="desc">{{ product.description }}</p>
 
-    <!-- Quantity Selector -->
     <div class="quantity-section">
       <label for="quantity">Quantity:</label>
       <input
@@ -15,10 +14,9 @@
       />
     </div>
 
-    <!-- Total Price -->
     <p class="price">₹{{ totalPrice }}</p>
 
-    <!-- Pass product (unit price) and quantity -->
+    <!-- Here, we are passing product which includes product id, name, price and quantity -->
     <PaymentSection :product="product" :quantity="quantity" />
   </div>
 </template>
@@ -33,10 +31,9 @@ const route = useRoute()
 const id = Number(route.params.id)
 const product = productsData.find((p) => p.id === id)
 
-// Quantity state
 const quantity = ref(1)
 
-// Total price computed
+// Here, we are calculating total price based on quantity
 const totalPrice = computed(() => product.price * quantity.value)
 </script>
 
