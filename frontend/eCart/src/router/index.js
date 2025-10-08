@@ -16,6 +16,22 @@ const routes = [
     path: '/payment-history',
     component: () => import('../pages/PaymentHistory.vue'),
   },
+  {
+    path: '/cart',
+    component: () => import('../pages/Cart.vue'),
+  },
+   {
+  path: '/parent',
+  name: 'parent',
+  component: () => import('../pages/Parent.vue'),
+   },
+   {
+  path: '/child/:userName/:pwd',
+  name: 'child',
+  component: () => import('../pages/Child.vue'),
+  props: true
+   },
+  
 ]
 
 export default createRouter({

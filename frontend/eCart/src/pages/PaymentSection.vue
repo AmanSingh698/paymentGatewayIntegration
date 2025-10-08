@@ -4,6 +4,8 @@
     <p><b>Product:</b> {{ product.name }}</p>
     <p><b>Quantity:</b> {{ quantity }}</p>
     <p><b>Amount:</b> ₹{{ totalPrice }}</p>
+    {{ product }}
+    <button @click="addToCart(product, quantity)" style="margin-right: 10px;">Add to Cart</button>
 
     <!-- Pay Now Button -->
     <button @click="createTransaction" :disabled="loadingCreate || token">
@@ -63,6 +65,42 @@ const statusClass = computed(() => {
   if (transactionStatus.value === 'Completed') return 'completed'
   return 'failed'
 })
+
+const addToCart = (product, quantity) => {
+  try {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+
+    if (!Array.isArray(cart)) {
+      cart = [];
+    }
+
+    const item = {
+      name: product.name,
+      price: product.price,
+      quantity,
+      total: product.price * quantity,
+    };
+
+    // Here, we are checking if item already exists in cart
+    // If it exists, we update the quantity and total price
+    const existingItemIndex = cart.findIndex(p => p.name === product.name);
+    if (existingItemIndex > -1) {
+      cart[existingItemIndex].quantity += quantity;
+      cart[existingItemIndex].total =
+        cart[existingItemIndex].price * cart[existingItemIndex].quantity;
+    } else {
+      cart.push(item);
+    }
+
+    // Save back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert('Product added to cart!');
+  } catch (err) {
+    console.error('Error adding to cart:', err);
+  }
+};
+
 
 // Save transaction to localStorage
 const saveToLocalStorage = () => {
